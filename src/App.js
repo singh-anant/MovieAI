@@ -1,6 +1,10 @@
-import "./App.css";
+import Body from "./pages/Body";
 const App = () => {
-  return <div className="text-3xl font-bold text-green-600">Hello Movies</div>;
+  return (
+    <>
+      <Body />
+    </>
+  );
 };
 
 export default App;
