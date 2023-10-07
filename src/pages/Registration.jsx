@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { checkValidData } from "../utils/Validation";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -11,8 +11,7 @@ const Registration = () => {
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-  // After registration is successful we must navigate to the signin page
-  const navigate = useNavigate();
+
   const handleRegisterButton = () => {
     // Validating the form data
     const messageFromValidation = checkValidData(
@@ -34,14 +33,11 @@ const Registration = () => {
           // Signed up
           const user = userCredential.user;
           // Firebase will give us access token,uid and much more...
-          // console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
           })
             .then(() => {
-              // Profile updated!
-              // ...
-              // navigate("/");
+              // Profile updated!!
             })
             .catch((error) => {
               // An error occurred

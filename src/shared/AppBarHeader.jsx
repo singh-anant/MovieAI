@@ -17,9 +17,7 @@ const AppBarHeader = () => {
   const userFromSlice = useSelector((store) => store.user);
   const handleLogout = () => {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
+      .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
@@ -44,6 +42,7 @@ const AppBarHeader = () => {
       } else {
         // User is signed out
         dispatch(removeUser());
+        navigate("/");
         // ...
       }
     });

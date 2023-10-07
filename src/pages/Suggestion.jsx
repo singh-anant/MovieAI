@@ -5,6 +5,7 @@ const Suggestion = () => {
   return (
     <div>
       <AppBarHeader />
+      Suggestion
     </div>
   );
 };

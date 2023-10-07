@@ -8,15 +8,11 @@ import AppBarHeader from "../shared/AppBarHeader";
 const Login = () => {
   // state variable for error message
   const [validMessage, setValidMessage] = useState();
-  // const [isPasswordValid, setIsPasswordValid] = useState(true);
 
   const email = useRef(null);
   const password = useRef(null);
   const handleLoginButton = () => {
     // Validating the form data
-
-    // console.log(email.current.value);
-    // console.log(password.current.value);
 
     const messageFromValidation = checkValidData(
       email.current.value,
@@ -34,7 +30,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           /* const user = userCredential.user; */
-          // console.log(user);
         })
         .catch((error) => {
           /*  const errorCode = error.code;
