@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
-import Header from "../shared/Header";
 import { NavLink } from "react-router-dom";
 import { checkValidData } from "../utils/Validation";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import AppBarHeader from "../shared/AppBarHeader";
 
 const Login = () => {
   // state variable for error message
@@ -22,10 +24,28 @@ const Login = () => {
     );
     console.log(messageFromValidation);
     setValidMessage(messageFromValidation);
+    if (messageFromValidation === null) {
+      // Then we will do authentication
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          /* const user = userCredential.user; */
+          // console.log(user);
+        })
+        .catch((error) => {
+          /*  const errorCode = error.code;
+          const errorMessage = error.message; */
+          setValidMessage("Email and Password does not match");
+        });
+    }
   };
   return (
     <div>
-      <Header />
+      <AppBarHeader />
       <div>
         <form
           // We don't want to submit the form...

@@ -1,29 +1,67 @@
 import React, { useRef, useState } from "react";
-import Header from "../shared/Header";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { checkValidData } from "../utils/Validation";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import AppBarHeader from "../shared/AppBarHeader";
 
 const Registration = () => {
   // state variable for error message
   const [validMessage, setValidMessage] = useState();
-  // const [isPasswordValid, setIsPasswordValid] = useState(true);
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
+  // After registration is successful we must navigate to the signin page
+  const navigate = useNavigate();
   const handleRegisterButton = () => {
     // Validating the form data
-    // console.log(email.current.value);
-    // console.log(password.current.value);
     const messageFromValidation = checkValidData(
       email.current.value,
       password.current.value
     );
-    console.log(messageFromValidation);
+    // console.log(messageFromValidation);
     setValidMessage(messageFromValidation);
+
+    if (messageFromValidation === null) {
+      // Then  we will create new User
+      //  Whenever we need auth we will just import it from firebase.js
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          // Firebase will give us access token,uid and much more...
+          // console.log(user);
+          updateProfile(user, {
+            displayName: name.current.value,
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+              // navigate("/");
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+              setValidMessage(error.message);
+            });
+
+          // ...
+        })
+        .catch((error) => {
+          /*  const errorCode = error.code;
+          const errorMessage = error.message; */
+          setValidMessage("Oops!!Some error occurred");
+          // ..
+        });
+    }
   };
   return (
     <div>
-      <Header />
+      <AppBarHeader />
       <div>
         <form
           onSubmit={(e) => e.preventDefault()}
@@ -49,7 +87,7 @@ const Registration = () => {
           />
           <input
             ref={password}
-            type="text"
+            type="password"
             placeholder="Enter Password"
             className="w-full p-2 my-3"
           />
