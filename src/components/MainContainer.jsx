@@ -8,7 +8,7 @@ const MainContainer = () => {
   //   Now we need to take one movie to display in the video
   //   This is early return
   if (movies === null) return;
-  const movieRunningAsVideo = movies?.results[0];
+  const movieRunningAsVideo = movies[0];
   // console.log(movieRunningAsVideo);
   return (
     <div>

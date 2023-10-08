@@ -10,7 +10,7 @@ const useGetMovieTrailerKey = (movieId) => {
     );
     const json = await data.json();
     // now we will filter the trailer to get the link
-    const filterTrailerFromVideos = json.results.filter(
+    const filterTrailerFromVideos = json?.results.filter(
       (video) => video.type === "Trailer"
     );
     // A movie can have multiple trailer so we will use first

@@ -14,7 +14,7 @@ const useNowPlayingMovies = () => {
     const json = await data.json();
     // console.log(json);
     // Adding movies inside Store
-    dispatch(addNowPlayingMovies(json));
+    dispatch(addNowPlayingMovies(json?.results));
   };
 
   useEffect(() => {
