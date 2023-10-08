@@ -1,19 +1,15 @@
 import React from "react";
-import Login from "./Login";
 import Suggestion from "./Suggestion";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Registration from "./Registration";
+import LoginAndRegister from "./LoginAndRegister";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
     {
       path: "/",
-      element: <Login />,
+      element: <LoginAndRegister />,
     },
-    {
-      path: "/register",
-      element: <Registration />,
-    },
+
     {
       path: "/suggestion",
       element: <Suggestion />,

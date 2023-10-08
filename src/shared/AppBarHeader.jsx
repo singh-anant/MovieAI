@@ -22,10 +22,11 @@ const AppBarHeader = () => {
         navigate("/error");
       });
   };
-
   // Here problem occur because we can only navigate inside router not outside it
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    /* Since we know that our Header will load multiple times so it will keep on attaching eventListener in it */
+    // Since onAuthStateChanged being eventListener its good or Hygiene practice to remove it
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
@@ -46,6 +47,8 @@ const AppBarHeader = () => {
         // ...
       }
     });
+    /* On component unmounting  we will remove it*/
+    return () => unsubscribe();
   }, []);
 
   return (

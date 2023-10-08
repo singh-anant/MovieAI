@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppBarHeader from "../shared/AppBarHeader";
+import useNowPlayingMovies from "../utils/hooks/useNowPlayingMovies";
+import MainContainer from "../components/MainContainer";
+import SecondaryContainer from "../components/SecondaryContainer";
 
 const Suggestion = () => {
+  useNowPlayingMovies();
+
   return (
     <div>
       <AppBarHeader />
-      Suggestion
+      {/* 
+     -MainContainer
+      ~VideoBackground
+      ~VideoTitle
+     -SecondaryContainer
+      ~MovieList
+        ~Cards
+     */}
+      <MainContainer />
+      <SecondaryContainer />
     </div>
   );
 };
