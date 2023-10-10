@@ -8,7 +8,8 @@ const MainContainer = () => {
   //   Now we need to take one movie to display in the video
   //   This is early return
   if (movies === null) return;
-  const movieRunningAsVideo = movies[0];
+  // var random = Math.floor(Math.random() * (0 - 9 + 1) + 0);
+  const movieRunningAsVideo = movies[7];
   // console.log(movieRunningAsVideo);
   return (
     <div>

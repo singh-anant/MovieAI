@@ -10,6 +10,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/Slice/userSlice";
+import { toggleGPTSearchView } from "../utils/Slice/gptSlice";
 
 const AppBarHeader = () => {
   const navigate = useNavigate();
@@ -51,6 +52,11 @@ const AppBarHeader = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleSearchGPT = () => {
+    // Toggling the GPT search
+    dispatch(toggleGPTSearchView());
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -65,6 +71,11 @@ const AppBarHeader = () => {
             >
               {userFromSlice.displayName}
             </Typography>
+          )}
+          {userFromSlice && (
+            <Button color="inherit" onClick={handleSearchGPT}>
+              SearchGPT
+            </Button>
           )}
           {userFromSlice && (
             <Button onClick={handleLogout} color="inherit">
