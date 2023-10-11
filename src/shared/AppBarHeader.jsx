@@ -16,6 +16,7 @@ const AppBarHeader = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userFromSlice = useSelector((store) => store.user);
+  const isSearchGPTPage = useSelector((store) => store.gpt.showGPTSearch);
   const handleLogout = () => {
     signOut(auth)
       .then(() => {})
@@ -74,7 +75,7 @@ const AppBarHeader = () => {
           )}
           {userFromSlice && (
             <Button color="inherit" onClick={handleSearchGPT}>
-              SearchGPT
+              {isSearchGPTPage ? "Home" : "SearchGPT"}
             </Button>
           )}
           {userFromSlice && (

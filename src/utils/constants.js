@@ -8,3 +8,6 @@ export const API_OPTIONS = {
 };
 
 export const POSTER_URL = "https://image.tmdb.org/t/p/w500";
+
+export const GPT_SECRET_KEY =
+  "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";

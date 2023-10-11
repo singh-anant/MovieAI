@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movieObj }) => {
-  console.log(movieObj);
+  // console.log(movieObj);
   return (
     <div className="p-2">
       <h1 className="text-4xl py-4 text-blue-500">{title}</h1>
@@ -10,7 +10,7 @@ const MovieList = ({ title, movieObj }) => {
         <div className="flex">
           {/* Rendering all movies */}
           {movieObj?.map((movie) => (
-            <MovieCard posterPath={movie.poster_path} />
+            <MovieCard key={movie.id} posterPath={movie.poster_path} />
           ))}
         </div>
       </div>
