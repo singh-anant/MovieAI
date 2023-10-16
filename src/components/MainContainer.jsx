@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import store from "../utils/Store";
 import VideoContainer from "./VideoContainer";
 
 const MainContainer = () => {
@@ -9,7 +8,7 @@ const MainContainer = () => {
   //   This is early return
   if (movies === null) return;
   // var random = Math.floor(Math.random() * (0 - 9 + 1) + 0);
-  const movieRunningAsVideo = movies[7];
+  const movieRunningAsVideo = movies[4];
   // console.log(movieRunningAsVideo);
   return (
     <div>

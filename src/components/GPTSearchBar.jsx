@@ -1,15 +1,18 @@
 import React, { useRef } from "react";
 import openai from "../utils/openai";
 import { SearchMovies } from "../utils/SearchMovies";
+import { useDispatch } from "react-redux";
+import { addGPTMovieResult, addGPTSearchResult } from "../utils/Slice/gptSlice";
 
 const GPTSearchBar = () => {
   const getSearchText = useRef(null);
+  const dispatch = useDispatch();
   const handleSearchGPT = async () => {
     // console.log(getSearchText.current.value);
     const gptPrompt =
       "Act as movie recommendation system and suggest some movies for the query" +
       getSearchText.current.value +
-      ".Give name of 10 movies only,separated by comma only.";
+      ".Give name of 10 movies only.No space just separated by comma ";
 
     // Make a api call to GPT to get movie results
     // We will get error because we are calling our api from frontend so its giving us a waring of api key leak
@@ -23,10 +26,14 @@ const GPTSearchBar = () => {
       gptResults?.choices[0]?.message?.content.split(",");
     /* 'One Piece: The Movie', ' One Piece Movie 2: Clockwork Island Adventure',...] */
 
+    // Adding it into the store...
+    dispatch(addGPTSearchResult(gptMoviesListInArray));
+
     // Now we actually want to search each movie list in array... so we have to it to the function
     // We are sending every movie list to the search movie api and will receive result
     // But we will not get the result...
     // Because it is async operation we will receive array of promises only....😥😥
+    // console.log(gptMoviesListInArray);
     const promiseArray = gptMoviesListInArray.map((movie) =>
       SearchMovies(movie)
     );
@@ -36,7 +43,9 @@ const GPTSearchBar = () => {
     // Promise.all() takes array of promises..It will wait for the all the promises to finish...
 
     const finalSearchMoviesResult = await Promise.all(promiseArray);
-    console.log(finalSearchMoviesResult);
+    // console.log(finalSearchMoviesResult);
+    // console.log(finalSearchMoviesResult);
+    dispatch(addGPTMovieResult(finalSearchMoviesResult));
   };
   return (
     <div className="flex justify-center">

@@ -1,10 +1,10 @@
 // Kind of like authorization
 
 import OpenAI from "openai";
-import { GPT_SECRET_KEY } from "./constants";
+import { OPENAI_API_KEY } from "./constants";
 
 const openai = new OpenAI({
-  apiKey: GPT_SECRET_KEY,
+  apiKey: OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
