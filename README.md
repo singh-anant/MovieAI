@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# MovieAI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MovieAI is a web application created using React, Redux, Tailwind CSS, and Firebase. This application is designed to provide users with a convenient way to discover and explore the latest movies. Additionally, it offers a unique movie recommendation functionality powered by OpenAI's GPT-3 search capabilities. With MovieAI, you can easily find, watch, and get recommendations for the hottest films.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
 
-### `npm start`
+- User Authentication: Create an account or log in securely using Firebase authentication to personalize your movie-watching experience.
+- Latest Movies: Explore a wide selection of the latest movies with detailed information such as title, synopsis, release date, and more.
+- Favorites List: Save your favorite movies to a personalized favorites list for quick and easy access.
+- Movie Recommendation: Receive personalized movie recommendations by interacting with our AI-powered searchbox, which leverages OpenAI's GPT-3 technology. Simply type what type of movie you want, and 
+  chatgpt will provide suggestions based on your preferences and interests.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Acknowledgements
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This project was developed as part of a learning experience and for demonstration purposes.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React: JavaScript library for building user interfaces.
+- React Redux: Predictable state container for managing application state.
+- React Router: Library for handling routes and navigation within the application.
+- Tailwind CSS: A utility-first CSS framework for creating responsive and visually appealing designs.
+- Firebase: A cloud-based platform for building web and mobile applications.
+- OpenAI GPT-3: A powerful language model for generating text-based responses and recommendations.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Login and Register Page
+[![login-page.png](https://i.postimg.cc/W116nd3x/login-page.png)](https://postimg.cc/TpBD2Ync)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[![register-page.png](https://i.postimg.cc/GtshrJq6/register-page.png)](https://postimg.cc/WqTPwrR7)
 
-### `npm run eject`
+### Suggestion Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[![suggestion-page1.png](https://i.postimg.cc/G3kvkFcX/suggestion-page1.png)](https://postimg.cc/RqZ3mnJt)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[![suggestion-page2.png](https://i.postimg.cc/t4gPQ8Fc/suggestion-page2.png)](https://postimg.cc/LnrhjCCk)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Search GPT page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[![gpt-page1.png](https://i.postimg.cc/wMPHGyzF/gpt-page1.png)](https://postimg.cc/YL1J4Shm)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![gpt-page2.png](https://i.postimg.cc/dQzV6p0F/gpt-page2.png)](https://postimg.cc/9zY2FxTg)
